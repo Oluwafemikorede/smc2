@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        
+    <title>Dashboard | SMC</title>
+    
+    <meta charset="utf-8" />
+            
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="" "stylesheet">
+    <!-- Custom styles for this template -->
+    
+    <link href="css/core.css" rel="stylesheet">
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+	<script id="panel-init">
+	  $(function() {
+		  $( "body>[data-role='panel']" ).panel();
+	  });
+		
+	  $(function() {
+			$("#tabs").tabs();
+	  });
+	  
+	  $(function() {
+		$( "#tabs" ).tabs();
+	  });
+	  
+	  $('#myTab a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})
+	  
+	</script>
+</head>
+<body>
+
+
+
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true">
+
+	<div data-role="header" data-ajax="false">
+		<h1 class="h1_header">Student Mobile Reader </h1>
+		<!--<a href="../panel/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">
+        Back</a>-->
+        
+        <a href="#leftpanel3" class="btn"><i class="fa fa-bars"></i> </a>
+	</div><!-- /header -->
+ <img src="img/devices.png" class="col-xs-12" />   
+<h4 class="ui-bar ui-bar-a" class="h1_header" style="color: #fff !important;">English</h4>
+      <div class="ui-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan blandit fermentum. Pellentesque cursus mauris purus, auctor commodo mi ullamcorper nec. Donec semper mattis eros, nec condimentum ante sollicitudin quis. Etiam orci sem, porttitor ut tellus nec, blandit posuere urna. Proin a arcu non lacus pretium faucibus. Aliquam sed est porttitor, ullamcorper urna nec, vehicula lorem. Cras porttitor est lorem, non venenatis diam convallis congue.</p>
+      </div>
+
+
+      <div data-role="footer"  data-tap-toggle="false" 
+      class="jqm-footer" data-position="fixed"
+      style="border-color: #FFF; color: #FFF;">
+         
+    <h4  class="h1_header" >&copy; Copyright 2014 SMC</h4>
+  </div>
+      
+</div><!-- /page -->
+
+	<!-- leftpanel3  -->
+	<div data-role="panel" id="leftpanel3" data-position="left" data-display="overlay" data-theme="a">
+
+        <h3 class="no-marg-top"><center><i class="fa fa-4x fa-user"></i></center></h3>
+        <h3 class="no-marg-top"><?=$_SESSION['userdetails']["team_name"]?></h3>
+        
+        
+  <div class="jqm-navmenu-panel jqm-panel-page-nav">
+             <ul class="jqm-list ui-alt-icon ui-nodisc-icon ui-listview">    
+  <li data-filtertext="demos homepage" data-icon="home" class="ui-first-child">
+    <a href="dashboard2.html" class="ui-btn ui-btn-icon-right ui-icon-home">
+    Dashboard
+    </a>
+  </li>
+  
+  <li data-filtertext="introduction overview getting started">
+    <a href="library.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+    Library
+    </a>
+  </li>
+  
+  <li data-filtertext="buttons button markup buttonmarkup method anchor link button element">
+      <a href="assignment.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Assignment
+      </a>
+  </li>
+  
+  <li data-filtertext="form button widget input button submit reset">
+      <a href="search.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+      Search
+      </a>
+  </li>
+ 
+   <li data-filtertext="form button widget input button submit reset">
+      <a href="news.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+      News
+      </a>
+   </li>
+</ul>
+          </div>        
+        
+        <p>This panel is positioned on the left with the overlay display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+        <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+
+	</div>
+
+  </body>
+</html>
+
+<? //include 'footer.php'; ?>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        
+    <title>Register | SMC</title>
+    
+    <meta charset="utf-8" />
+        
+    <link rel="shortcut icon" href="img/logo.png"/>        
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="" "stylesheet">
+    <!-- Custom styles for this template -->
+    
+    <link href="css/core.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+ 
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true">
+      
+      <div data-role="header" data-ajax="false" data-position="fixed">
+        <h1 class="h1_header">SMC | Register</h1>
+        <a href="index.html" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-text ui-icon-carat-l">
+        Login</a>
+        
+    </div>    
+
+    <div class="container login-container">
+
+  		<div class="row">
+          	
+          <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+        
+            <div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b">
+            
+                <h1 class="ui-title h1_header" role="heading" aria-level="1">Create An Account</h1>
+            </div><!-- /header -->
+        
+            <div role="main" class="ui-content">
+                <!--<h2 class="no-marg-top">Login</h2>-->
+                <h2 class="no-marg-top"><center><i class="fa fa-3x fa-user"></i></center></h2>
+                
+                <!-- <div class="alert alert-warning"></div> -->
+                <div class='alert alert-warning' style="display: none" id="error">
+                </div> 
+
+
+                <form data-ajax="false" method="post">
+                	
+
+
+                    <label>Subject</label>
+                        <select id="subject" name="subject" class="col-xs-12">
+                            <option value="">Select Subject</option>
+                            
+                        </select>
+
+
+              
+                  <label for="textarea-1">Question:</label>
+                  <textarea cols="40" rows="20" 
+                  name="textarea-1" placeholder="Question" id="textarea-1"></textarea>
+
+                    <fieldset data-role="controlgroup">
+                        <legend>Vertical controlgroup, radio:</legend>
+                        <input type="radio" 
+                        name="radio-choice-v-1" id="radio-choice-v-1a" value="on" checked="checked">
+                        <label for="radio-choice-v-1a">One</label>
+                        <input type="radio" 
+                        name="radio-choice-v-1" id="radio-choice-v-1b" value="off">
+                        <label for="radio-choice-v-1b">Two</label>
+                        <input type="radio" 
+                        name="radio-choice-v-1" id="radio-choice-v-1c" value="other">
+                        <label for="radio-choice-v-1c">Three</label>
+                    </fieldset>
+
+                    
+                    
+                    <button id="register">Create Assignment</button>
+                </form>
+                
+               <!-- <p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left" data-transition="pop" data-direction="reverse">Back to page "one"</a></p>-->
+               
+            </div><!-- /content -->
+        
+            <div data-role="footer" role="contentinfo" class="ui-footer ui-bar-inherit" 
+            style="background-color: #000">
+                <h4 class="ui-title" role="heading" aria-level="1">
+                	<a class="btn btn-success" href="index.html"  data-ajax="false" style="color:white;"><i class="fa fa-lock"></i>  Back</a>
+                </h4>
+            </div><!-- /footer -->
+        </div>            
+     
+     </div>               
+
+	</div>
+
+
+<div data-role="footer"  data-tap-toggle="false" 
+      class="jqm-footer" data-position="fixed"
+      style="border-color: #FFF; color: #FFF;">
+         
+    <h4  class="h1_header" >&copy; Copyright 2014 SMC</h4>
+  </div>
+
+  </div>
+
+
+      <!-- <footer data-role="footer" data-tap-toggle="false" class="jqm-footer">
+         &copy; Copyright 2014 SMC
+      </footer> -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      var apiUrl = "http://386.com.ng/smc/api/";
+      //var apiUrl = "http://localhost/smc/api/";
+     $.get( apiUrl+"schools", function( data ) {
+        $.each(data, function( key, value ) {
+            //console.log(value.school);
+           $( "#school" ).append( "<option value='"+ value.id +"'>"+ value.school +"</option>" );
+            });
+    }, "json");
+
+
+     $.get( apiUrl+"subjects", function( data ) {
+        $.each(data, function( key, value ) {
+            //console.log(value.school);
+           $( "#subject" ).append( "<option value='"+ value.id +"'>"+ value.subject +"</option>" );
+            });
+    }, "json");
+
+
+      $.get( apiUrl+"class", function( data ) {
+        $.each(data, function( key, value ) {
+           // console.log(value.class);
+           $( "#class" ).append( "<option value='"+ value.id +"'>"+ value.class +"</option>" );
+            });
+    }, "json");
+
+
+
+                  $('#register').click(function(event){
+                    event.preventDefault();
+                  var school_id = $('#school').val();
+                  var class_id = $('#class').val();
+                  var subject_id = $('#subject').val();
+                  var user_category = $('#category').val();
+                  var phone = $('#phone').val();
+                  var first_name = $('#first_name').val();
+                  var last_name = $('#last_name').val();
+                  var password = $('#password').val();
+                  var password2 = $('#password2').val();
+
+                    $.post( apiUrl+"register", 
+                    { fname: first_name, 
+                      lname: last_name, 
+                      user_type: user_category, 
+                      school_id: school_id, 
+                      subject_id: subject_id,
+                      class_id: class_id, 
+                      phone: phone, 
+                      password: password, 
+                      password2: password2 }, 
+                    function( data ) 
+                    {
+                        console.log(data.success);
+                        if(data.success == 'true')
+                        {
+                            $.mobile.changePage("index.html");
+                        } else {
+                            $.mobile.changePage("dashboard.html");
+                        }
+              
+                            //console.log( data.time ); // 2pm
+                    }, "json");
+
+            });
+    });
+   
+
+</script>
+  </body>
+</html>

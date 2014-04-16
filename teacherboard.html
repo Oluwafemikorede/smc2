@@ -1,0 +1,252 @@
+<!DOCTYPE html> 
+<html>
+<head>
+   <title>Home | SMC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href=""/>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/core.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+    <style>
+.user_profile {
+  margin:0px auto; text-align:center;
+}
+
+.user_profile > i {
+margin: 0px 150px;
+}
+
+.user_profile > h1, h2, h3 {
+  text-transform:lowercase;
+  margin:0px auto;
+}
+
+.user_profile > div {
+  margin:5px 0px 10px;;
+}
+</style>
+  <!--   
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" 
+        rel="" "stylesheet"> -->
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+	<script id="panel-init">
+	 $(document).ready(function()
+   {
+		  $( "body>[data-role='panel']" ).panel();
+
+      $("#tabs").tabs();
+
+
+        $('#myTab a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        });
+	  });
+	</script>
+  <script>
+  $(function () {
+    $('#myTab a:first').tab('show')
+  })
+</script>
+</head>
+<body>
+
+<div data-role="page" data-ajax="false" class="jqm-demos" data-quicklinks="true">
+
+	<div data-role="header" data-ajax="false" class="kore_header">
+  <a href="#leftpanel3" class="btn"><i class="fa fa-bars"></i> </a>
+		<h1 class="h1_header">Student Mobile Companion</h1>
+		<a href="index.html" data-rel="back" class="ui-btn ui-btn-right ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-r">
+        Login</a>
+        
+        
+	</div>
+
+
+
+<div role="main" class="ui-content">
+  <!-- <h3>Subject 3</h3>
+    <ul 
+      data-role="listview" 
+      data-filter="true" 
+      data-inset="true" 
+      id="libr">
+    </ul> -->
+  <!-- <div data-role="tabs" id="tabs">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#one" data-ajax="false">one</a></li>
+              <li><a href="#two" data-ajax="false">two</a></li>
+              <li><a href="#three" data-ajax="false">three</a></li>
+             
+            </ul>
+          </div>
+          
+          <div id="one" >
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+            </ul>
+          </div>
+          
+          <div id="two">
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+            </ul>
+          </div>
+          
+          <div id="three">
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Acura</a></li>
+            </ul>
+          </div>
+          
+         
+        </div> -->
+<div class="row">
+      <div class="col-lg-12 col-xs-12 col-sm-12 col-xs-12 user_profile">
+        <i class="fa fa-4x fa-user"></i>
+           <h4 id="teacher">Oluwafemi Korede</h4>
+           
+           <div data-role="tabs" id="tabs">
+          <div data-role="navbar">
+            <ul>
+              <li>
+              <a href="#one" data-ajax="false"> 
+              <i class="fa fa-file-text-o"></i> Note</a></li>
+              <li>
+              <a href="#two" data-ajax="false">
+              <i class="fa fa-file-o"></i> Assignment</a></li>
+              <li>
+                <a href="#three" data-ajax="false">
+                <i class="fa fa-comments-o"></i> News</a></li>
+             
+            </ul>
+          </div>
+          </div>
+          <!--  <div class="col-lg-4 col-xs-4 col-sm-4 col-xs-4">
+            <a href="#"><i class="fa fa-file-text-o"></i> Note</a>
+           </div>
+           <div class="col-lg-4 col-xs-4 col-sm-4 col-xs-4">
+            <a href="#"><i class="fa fa-file-o"></i> Assignment</a>
+           </div>
+           <div class="col-lg-4 col-xs-4 col-sm-4 col-xs-4">
+            <a href="#"><i class="fa fa-comments-o"></i> News</a>
+           </div> -->
+           
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-12 col-xs-12 col-sm-12 col-xs-12">
+            <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                <li data-role="list-divider" class="h1_header">All Students</li>
+                <li><a href="#" >Oluwafemi Korede</a></li>
+                <li><a href="#">Oluwafemi Korede</a></li>
+                <li><a href="#">Oluwafemi Korede</a></li>
+                <li><a href="#">Oluwafemi Korede</a></li>
+                <li><a href="#">Oluwafemi Korede</a></li>
+                <li><a href="#">Oluwafemi Korede</a></li>
+            </ul>
+        </div>
+      </div>
+</div>
+
+
+
+
+<div data-role="footer"  data-tap-toggle="false" 
+      class="jqm-footer" data-position="fixed"
+      style="border-color: #FFF; color: #FFF;">
+         
+    <h4  class="h1_header" >&copy; Copyright 2014 SMC</h4>
+</div>
+    
+
+</div><!-- /page -->
+
+	<!-- leftpanel3  -->
+	<div data-role="panel" id="leftpanel3" data-position="left" data-display="overlay" data-theme="a">
+	<h3 class="no-marg-top"><center><i class="fa fa-2x fa-user"></i></center></h3>
+        <center>
+          <h4 class="no-marg-top" id="username"></h4>
+        </center>
+
+<div class="jqm-navmenu-panel jqm-panel-page-nav">
+    <ul class="jqm-list ui-alt-icon ui-nodisc-icon ui-listview">    
+  <li data-filtertext="demos homepage" data-icon="home" class="ui-first-child">
+    <a href="teacherboard.html" class="ui-btn ui-btn-icon-right ui-icon-home">
+    Dashboard
+    </a>
+  </li>
+  
+  <li data-filtertext="introduction overview getting started">
+    <a href="create-lesson.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+      Create Lesson
+    </a>
+  </li> 
+  
+  <li data-filtertext="buttons button markup buttonmarkup method anchor link button element">
+      <a href="create-assignment.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">  Create Assignment
+      </a>
+  </li>
+  
+  <li data-filtertext="form button widget input button submit reset">
+      <a href="add-news.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+      Add News
+      </a>
+  </li>
+</ul>
+          </div> 
+
+
+        <a href="#demo-links" 
+        data-rel="close" 
+        class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close</a>
+
+    </div>
+
+
+  </body>
+</html>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+  
+     var userDetails = window.localStorage.getItem("userData");
+     var user_Details = JSON.parse(userDetails);
+    // $('#leftpanel3').load('teacher-sidebar.html');
+    
+    document.getElementById('username').innerHTML = user_Details.fname +'  '+ user_Details.lname;
+    document.getElementById('teacher').innerHTML = user_Details.fname +'  '+ user_Details.lname;
+
+
+    var apiUrl = "http://386.com.ng/smc/api/library/"+user_Details.id;
+    //var apiUrl = "http://localhost/smc/api/library/"+user_Details.id;
+
+    $.get( apiUrl, function( data ) {
+        $.each(data, function( key, value ) {
+            console.log(value.assn_title);
+
+           $( "#libr" ).append( 
+            "<li data-role='list-divider' class='h1_header ui-li-divider ui-bar-inherit ui-li-has-count'>"+ value.subject+"</li><li>"
+            +"<a href='page-reader.html' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><h2>"+value.assn_title+"</h2><p>"
+            +value.assn_content+"</p><p class='ui-li-aside'><strong>4:48</strong>PM</p></a></li>");
+            });
+    }, "json");   
+  });
+</script>

@@ -1,0 +1,294 @@
+<? //include 'header.php'; ?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        
+    <title>Dashboard | SMC</title>
+    
+    <meta charset="utf-8" />
+      
+    <link rel="shortcut icon" href="img/logo.png"/>
+    
+    
+        
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="" "stylesheet">
+    <!-- Custom styles for this template -->
+    
+    <link href="css/core.css" rel="stylesheet">
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+	<script id="panel-init">
+	  $(function() {
+     
+		  $( "body>[data-role='panel']" ).panel();
+	  });
+		
+	  $(function() {
+			$("#tabs").tabs();
+	  });
+	  
+	  $(function() {
+		$( "#tabs" ).tabs();
+	  });
+	  
+	  $('#myTab a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})
+	  
+	</script>
+</head>
+<body>
+
+
+<!--<div data-role="page" class="jqm-demos" data-quicklinks="true">
+	<div data-demo-html="true">
+		<div data-role="tabs">
+			<div data-role="navbar">
+				<ul>
+			      <li><a href="#one" data-theme="a" data-ajax="false">one</a></li>
+			      <li><a href="#two"  data-theme="a" data-ajax="false">two</a></li>
+			      <li><a href="ajax-content.html"  data-theme="a" data-ajax="false">three</a></li>
+			    </ul>
+			</div>
+
+			<div id="one" class="ui-content">
+			<h1>First tab contents</h1>
+			</div>
+			<div id="two" class="ui-content">
+				<ul data-role="listview">
+				    <li><a href="#">Acura</a></li>
+				    <li><a href="#">Audi</a></li>
+				    <li><a href="#">BMW</a></li>
+				    <li><a href="#">Cadillac</a></li>
+				    <li><a href="#">Ferrari</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+			<p>jQuery Mobile Demos version <span class="jqm-version"></span></p>
+			<p>Copyright 2014 The jQuery Foundation</p>
+		</div>		
+	</div>
+</div>-->
+	
+
+<div data-role="page" class="jqm-demos" data-quicklinks="true">
+
+	<div data-role="header" data-ajax="false">
+		<h1>SMC</h1>
+		<a href="index.html" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">
+        Back</a>
+        
+        <a href="#leftpanel3" class="btn"><i class="fa fa-bars"></i> </a>
+	</div><!-- /header -->
+    
+    <!--<div data-role="footer" class="nav-glyphish-example" data-theme="b">
+        <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#" id="chat"><i class="fa fa-users"></i>My Team</a></li>
+            <li><a href="#" id="email">Points</a></li>
+            <li><a href="#" id="skull">My Prediction</a></li>
+            <li><a href="#" id="beer">Rules</a></li>
+            <li><a href="#" id="coffee">Rules</a></li>
+        </ul>
+        </div>
+    </div>-->
+
+<? //include 'load.php'; ?>
+	
+    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+
+        <div data-role="tabs" id="tabs">
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#one" data-ajax="false">one</a></li>
+              <li><a href="#two" data-ajax="false">two</a></li>
+              <li><a href="#three" data-ajax="false">three</a></li>
+              <li><a href="#four" data-ajax="false">three</a></li>
+            </ul>
+          </div>
+          
+          <div id="one" class="ui-body-d ui-content">
+            <h3>First tab contents</h3>
+          </div>
+          
+          <div id="one">
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+                <li><a href="#">BMW</a></li>
+                <li><a href="#">Cadillac</a></li>
+                <li><a href="#">Ferrari</a></li>
+            </ul>
+          </div>
+          
+          <div id="three">
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+                <li><a href="#">BMW</a></li>
+                <li><a href="#">Cadillac</a></li>
+                <li><a href="#">Ferrari</a></li>
+            </ul>
+          </div>
+          
+          <div id="four">
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+                <li><a href="#">BMW</a></li>
+                <li><a href="#">Cadillac</a></li>
+                <li><a href="#">Ferrari</a></li>
+            </ul>
+          </div>
+        </div>
+        
+
+	</div>
+    
+<!-- <ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#home" data-toggle="tab">GoalKeeper</a></li>
+  <li><a href="#profile" data-toggle="tab">Defender</a></li>
+  <li><a href="#messages" data-toggle="tab">Midfielder</a></li>
+  <li><a href="#settings" data-toggle="tab">Strikers</a></li>
+</ul> -->
+
+<form data-ajax="false" method="post">
+
+<div class="tab-content">
+  <!-- <div class="tab-pane active" id="home">
+  	<table class="table table-striped">
+        <tr><td>NAME</td><td>COUNTRY</td><td>Options</td></tr>
+        <tr><td>Neuer</td><td>GER</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Enyeama</td><td>NGR</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Casillas</td><td>ESP</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Thibaut</td><td>BLG</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Joe Hart</td><td>ENG</td><td><input name="gk" type="checkbox" /></td></tr>
+      </table>
+  </div> -->
+  
+  <!-- <div class="tab-pane" id="profile">
+  		<table class="table table-striped">
+                  <tr><td>NAME</td><td>COUNTRY</td><td>Options</td></tr>
+                  <tr><td>Badstuber</td><td>GER</td><td><input name="df" type="checkbox" /></td></tr>
+                  <tr><td>A. Cole</td><td>ENG</td><td><input name="df" type="checkbox" /></td></tr>
+                  <tr><td>Taye Taiwo</td><td>NGR</td><td><input name="df" type="checkbox" /></td></tr>
+                  <tr><td>Xabi Alonso </td><td>ESP</td><td><input name="df" type="checkbox" /></td></tr>
+                  <tr><td>Pepe</td><td>POR</td><td><input name="df" type="checkbox" /></td></tr>
+                </table>
+  </div> -->
+  
+  <!-- <div class="tab-pane" id="messages">
+  	<table class="table table-striped">
+        <tr><td>NAME</td><td>COUNTRY</td><td>Options</td></tr>
+        <tr><td>Mikel</td><td>NGR</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Ineista</td><td>ESP</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Gerrard</td><td>ENG</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Hazard</td><td>BEL</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>PIRLO</td><td>ITA</td><td><input name="gk" type="checkbox" /></td></tr>
+      </table>
+  </div> -->
+  
+  <!-- <div class="tab-pane" id="settings">
+      <table class="table table-striped">
+        <tr><td>NAME</td><td>COUNTRY</td><td>Options</td></tr>
+        <tr><td>V. Persie</td><td>NTH</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Benzema</td><td>FRA</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Suarez</td><td>URG</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Rooney</td><td>ENG</td><td><input name="gk" type="checkbox" /></td></tr>
+        <tr><td>Drogba</td><td>CIV</td><td><input name="gk" type="checkbox" /></td></tr>
+      </table>
+  </div> -->
+</div>
+
+
+<button>Submit</button>
+
+
+</form>
+
+<script>
+  $(function () {
+    $('#myTab a:first').tab('show')
+  })
+</script>
+
+    
+
+</div><!-- /page -->
+
+	<!-- leftpanel3  -->
+	<div data-role="panel" id="leftpanel3" data-position="left" data-display="overlay" data-theme="a">
+
+        <h3 class="no-marg-top"><center><i class="fa fa-4x fa-user"></i></center></h3>
+        <center>
+          <h4 class="no-marg-top" id="username"></h4>
+        </center>
+        
+        
+  <div class="jqm-navmenu-panel jqm-panel-page-nav">
+    <ul class="jqm-list ui-alt-icon ui-nodisc-icon ui-listview">
+                
+      <li data-filtertext="demos homepage" data-icon="home" class="ui-first-child">
+        <a href="../dashboard" class="ui-btn ui-btn-icon-right ui-icon-home">Dashboard</a>
+      </li>
+    
+      <li data-filtertext="introduction overview getting started">
+        <a href="library.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Library</a>
+      </li>
+    
+      <li data-filtertext="buttons button markup buttonmarkup method anchor link button element">
+        <a href=".#" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Assignment</a>
+      </li>
+  
+      <li data-filtertext="form button widget input button submit reset">
+        <a href="#" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Search</a>
+      </li>
+     
+       <li data-filtertext="form button widget input button submit reset">
+          <a href="#" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">News</a>
+      </li>
+  
+</ul>
+      </div>        
+        
+        <p>This panel is positioned on the left with the overlay display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+        <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+
+	</div>
+
+  </body>
+</html>
+<script type="text/javascript">
+  $(function()
+  {
+     var user_email = localStorage.getItem("smc_email");
+     var userDetails = localStorage.getItem("userData");
+     var user_Details = JSON.parse(userDetails);
+     //var userDetails = sessionStorage.getItem('userDetails');
+     console.log(user_Details.email);
+//     $('#username').text() = userDetails.fname +'     '+userDetails.lname; 
+document.getElementById('username').innerHTML = user_Details.fname +'  '+ user_Details.lname;
+  });
+</script>
+
+<? //include 'footer.php'; ?>

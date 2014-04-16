@@ -1,0 +1,178 @@
+<!DOCTYPE html> 
+<html>
+<head>
+   <title>Home | SMC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href=""/>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/core.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+    <!-- Bootstrap core CSS -->
+  <!--   
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" 
+        rel="" "stylesheet"> -->
+    <!-- Custom styles for this template -->
+    
+    
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    
+	<script id="panel-init">
+	 $(document).ready(function()
+   {
+		  $( "body>[data-role='panel']" ).panel();
+
+      $("#tabs").tabs();
+
+
+        $('#myTab a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        });
+	  });
+		
+	 /* $(function() {
+			$("#tabs").tabs();
+
+
+	  });
+	  
+	
+	  
+	  $('#myTab a').click(function (e) {
+		  e.preventDefault()
+		  $(this).tab('show')
+		})*/
+	  
+	</script>
+</head>
+<body>
+
+<div data-role="page" data-ajax="false" class="jqm-demos" data-quicklinks="true">
+
+	<div data-role="header" data-ajax="false" class="kore_header">
+		<h1 class="h1_header">Student Mobile Companion</h1>
+		<a href="index.html" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-home-icon ui-corner-all ui-btn-icon-notext ui-icon-home">
+        Home</a>
+        
+        <a href="#leftpanel3" class="btn"><i class="fa fa-bars"></i> </a>
+	</div><!-- /header -->
+
+<!-- <script>
+  $(function () {
+    $('#myTab a:first').tab('show')
+  })
+</script> -->
+
+
+
+<div role="main" class="ui-content">
+  <h3>Subject 3</h3>
+    <ul 
+      data-role="listview" 
+      data-filter="true" 
+      data-inset="true" 
+      id="libr">
+    </ul>
+</div>
+
+
+
+
+<div data-role="footer"  data-tap-toggle="false" 
+      class="jqm-footer" data-position="fixed"
+      style="border-color: #FFF; color: #FFF;">
+         
+    <h4  class="h1_header" >&copy; Copyright 2014 SMC</h4>
+</div>
+    
+
+</div><!-- /page -->
+
+	<!-- leftpanel3  -->
+	<div data-role="panel" id="leftpanel3" data-position="left" data-display="overlay" data-theme="a">
+
+        <h3 class="no-marg-top"><center><i class="fa fa-4x fa-user"></i></center></h3>
+        <center>
+          <h4 class="no-marg-top" id="username"></h4>
+        </center>
+        
+        
+  <div class="jqm-navmenu-panel jqm-panel-page-nav">
+    <ul class="jqm-list ui-alt-icon ui-nodisc-icon ui-listview">    
+  <li data-filtertext="demos homepage" data-icon="home" class="ui-first-child">
+    <a href="dashboard2.html" class="ui-btn ui-btn-icon-right ui-icon-home">
+    Dashboard
+    </a>
+  </li>
+  
+  <li data-filtertext="introduction overview getting started">
+    <a href="library.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+    Library
+    </a>
+  </li>
+  
+  <li data-filtertext="buttons button markup buttonmarkup method anchor link button element">
+      <a href="assignment.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Assignment
+      </a>
+  </li>
+  
+  <li data-filtertext="form button widget input button submit reset">
+      <a href="search.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+      Search
+      </a>
+  </li>
+ 
+   <li data-filtertext="form button widget input button submit reset">
+      <a href="news.html" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r">
+      News
+      </a>
+   </li>
+</ul>
+          </div>        
+        
+        <p>This panel is the student and teachers dashboard:</p>
+        <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close Dashboard</a>
+
+	</div>
+  </body>
+</html>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+
+     var userDetails = localStorage.getItem("userData");
+     var user_Details = JSON.parse(userDetails);
+    
+    document.getElementById('username').innerHTML = user_Details.fname +'  '+ user_Details.lname;
+
+
+    var apiUrl = "http://386.com.ng/smc/api/library/"+user_Details.id;
+    //var apiUrl = "http://localhost/smc/api/library/"+user_Details.id;
+
+    $.get( apiUrl, function( data ) {
+        $.each(data, function( key, value ) {
+            console.log(value.assn_title);
+
+           $( "#libr" ).append( 
+            "<li data-role='list-divider' class='h1_header ui-li-divider ui-bar-inherit ui-li-has-count'>"+ value.subject+"</li><li>"
+            +"<a href='page-reader.html' class='ui-btn ui-btn-icon-right ui-icon-carat-r'><h2>"+value.assn_title+"</h2><p>"
+            +value.assn_content+"</p><p class='ui-li-aside'><strong>4:48</strong>PM</p></a></li>");
+            });
+    }, "json");   
+  });
+</script>

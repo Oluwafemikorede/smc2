@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        
+    <title>Home | SMC</title>
+    
+    <meta charset="utf-8" />
+        
+    <link rel="shortcut icon" href="img/logo.png"/>        
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <!-- 
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;lang=en" rel="" "stylesheet"> -->
+    <!-- Custom styles for this template -->
+    
+    <link href="css/core.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+     <!--  <div data-role="header" data-position="fixed">
+             <center>
+             <img class="col-xs-12" src="img/logo.png">
+             </center>
+      </div> --> 
+
+      <div data-role="header" data-ajax="false" data-position="fixed">
+        <h1 class="h1_header">Student Mobile Companion</h1>
+    </div>
+
+
+
+    <div class="container login-container">
+
+		<div class="row">
+        	
+        <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+        
+            <div 
+                data-role="header" 
+                data-theme="b" 
+                role="banner" 
+                class="ui-header ui-bar-b"
+                style="border-top: 1px solid #FFF;">
+            
+            <!--<a role="button" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext ui-btn-left" data-transition="pop" data-direction="reverse">Close</a>-->
+            
+                <h1 
+                class="ui-title h1_header" role="heading" aria-level="1" >Account Login</h1>
+            </div><!-- /header -->
+        
+            <div role="main" class="ui-content">
+                <!--<h2 class="no-marg-top">Login</h2>-->
+                <h2 class="no-marg-top" style="color: #000"><center>
+                <i class="fa fa-3x fa-lock"></i></center></h2>
+                
+                <div class='alert alert-warning' style="display: none" id="error">
+                    <i class='fa fa-exclamation-triangle'></i> 
+                </div> 
+                
+                <form data-ajax="false" method="post">
+                	<label>Phone Number</label>
+                    <input type="email" id="email" value="" name="u_phone" class="col-xs-12" required 
+                    placeholder="Phone Number: 2348024916061" />
+                    
+                    <label>Password</label>
+                    <input type="password" id="password" value="" name="u_passwd" class="col-xs-12" required placeholder="Password" />
+                    
+                    <button id="login">Login</button>
+                </form>
+                
+               <!-- <p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-icon-back ui-btn-icon-left" data-transition="pop" data-direction="reverse">Back to page "one"</a></p>-->
+               
+            </div><!-- /content -->
+        
+            <div data-role="footer" 
+                  role="contentinfo" 
+                  class="ui-footer ui-bar-inherit" 
+                 style="background-color: #000">
+                <h4 class="ui-title" role="heading" aria-level="1">
+                	<a href="register.html" class="btn btn-success" data-ajax="false" style="color:white;"><i class="fa fa-user"></i>  Sign Up</a>
+                </h4>
+            </div><!-- /footer -->
+        </div>            
+     
+     </div>               
+
+	</div>
+    
+    
+      <footer data-role="footer" 
+      data-tap-toggle="false" 
+      class="jqm-footer" 
+      style="border-color: #FFF; color: #FFF;">
+         &copy; Copyright 2014 SMC
+      </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/jquery.mobile-1.4.2.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#login').click(function(event){
+            event.preventDefault();
+                 
+          var apiUrl = "http://386.com.ng/smc/api/";
+          //var apiUrl = "http://localhost/smc/api/";
+          var email = $('#email').val();
+          var password = $('#password').val();
+         
+         
+     $.post( apiUrl+"login", 
+        { phone: email, password: password }, 
+        function( data ) {
+        
+         //console.log(data.error);
+            if(typeof(data.error) == "undefined" && data.error == null)
+            {
+                window.localStorage.setItem("userData",JSON.stringify(data));
+                if(data.category == 'Student')
+                {
+                  //console.log("Student");
+                  window.location = "studentboard.html";
+                } else {
+                  console.log("Teacher");
+                  window.location = "teacherboard.html";
+                }
+                
+            } else if(data.error == 'true') {
+       
+              if (navigator.notification) 
+                  navigator.notification.alert('Login Fails, Incorrect match');
+              else 
+                 alert('Login Fails, Incorrect match');         
+               
+            }
+    }, "json");
+
+
+        });
+      
+
+    });
+   
+
+</script>
+  </body>
+</html>
